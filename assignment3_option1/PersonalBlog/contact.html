@@ -44,14 +44,12 @@
         <form action="">
 
             <label for="name">Your name:</label>
-            <input type="text" name="name" id="name" maxlength="10" required><br>
+            <input type="text" name="name" id="name"><br>
 
-            <label for="email">Email</label>
-
-            <input type="email" name="email" id="email" maxlength="100" required><br>
+            <label for="email">Your email:</label>
+            <input type="email" name="email" id="email"><br>
 
             <label for="subject">Subject</label>
-
             <input type="text" name="title" id="title" maxlength="250" minlength="50"><br>
 
             <label for="message"> Message</label>
@@ -66,29 +64,30 @@
     <script>
         // name input validation
         const nameInput = document.getElementById("name");
-
-        nameInput.addEventListener('invalid', function(e) {
-            const validityState = nameInput.validity;
-
+        nameInput.addEventListener('input', function(e) {
             // khong nhap ten vao truong Your name thi thong bao loi
-            if (validityState.valueMissing) {
+            if (nameInput.value === '') {
                 nameInput.setCustomValidity('Please fill out your name.');
-            } else if (validityState.tooLong) {
+            } // nhap vao truong Your name qua 100 ki tu 
+            else if (nameInput.value.length > 100) {
                 nameInput.setCustomValidity('Your name should not exceed 100 characters.');
             } else {
                 nameInput.setCustomValidity('');
             }
         })
 
-        // nhap vao truong Your name qua 100 ki tu
-
-        //     // email input validation
-        // const emailInput = document.getElementById("email");
-        // emailInput.addEventListener('invalid', function(e) {
-        //     // khong nhap ten vao truong Your name thi thong bao loi
-        //     if (emailInput.value.length > 100) {
-        //         emailInput.setCustomValidity('Please fill out your name.');
-        //     }
-        // })
+        // email input validation
+        const emailInput = document.getElementById("email");
+        emailInput.addEventListener('input', function(e) {
+            // khong nhap du lieu vao truong Your Email thi thong bao loi
+            if (emailInput.value === '') {
+                emailInput.setCustomValidity('Please fill out your email.');
+            } // nhap vao truong Your Email qua 100 ki tu 
+            else if (emailInput.value.length > 100) {
+                emailInput.setCustomValidity('Your email should not exceed 100 characters.')
+            } else {
+                emailInput.setCustomValidity('');
+            }
+        })
     </script>
 </body>
