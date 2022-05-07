@@ -1,10 +1,4 @@
-<script src="contact.js">
-</script>
-<script src="contact.css">
-</script>
-
 <!DOCTYPE html>
-
 
 <head>
     <meta charset="UTF-8">
@@ -50,44 +44,73 @@
             <input type="email" name="email" id="email"><br>
 
             <label for="subject">Subject</label>
-            <input type="text" name="title" id="title" maxlength="250" minlength="50"><br>
+            <input type="text" name="subject" id="subject"><br>
 
             <label for="message"> Message</label>
-            <textarea name="message" cols="40" rows="5" maxlength="500" required></textarea>
+            <textarea name="message" cols="40" rows="5"></textarea>
 
             <br>
-            <input type="submit" value="Send Message">
+            <input type="submit" value="Send Message" onclick="validate()">
 
         </form>
     </main>
     <footer>&copy;2022 by Huy's cake</footer>
     <script>
         // name input validation
-        const nameInput = document.getElementById("name");
-        nameInput.addEventListener('input', function(e) {
+        function validateNameInput() {
+            const nameInput = document.getElementById("name");
+
             // khong nhap ten vao truong Your name thi thong bao loi
             if (nameInput.value === '') {
                 nameInput.setCustomValidity('Please fill out your name.');
             } // nhap vao truong Your name qua 100 ki tu 
             else if (nameInput.value.length > 100) {
                 nameInput.setCustomValidity('Your name should not exceed 100 characters.');
-            } else {
+            } // nhap dung du lieu vao truong name 
+            else {
                 nameInput.setCustomValidity('');
             }
-        })
+        };
 
         // email input validation
-        const emailInput = document.getElementById("email");
-        emailInput.addEventListener('input', function(e) {
+        function validateEmailInput() {
+            const emailInput = document.getElementById("email");
+
             // khong nhap du lieu vao truong Your Email thi thong bao loi
             if (emailInput.value === '') {
                 emailInput.setCustomValidity('Please fill out your email.');
             } // nhap vao truong Your Email qua 100 ki tu 
             else if (emailInput.value.length > 100) {
                 emailInput.setCustomValidity('Your email should not exceed 100 characters.')
-            } else {
+            } // nhap dung du lieu vao truong email 
+            else {
                 emailInput.setCustomValidity('');
             }
-        })
+        }
+
+        // Subject input validation
+        function validateSubjectInput() {
+            const subjectInput = document.getElementById("subject");
+
+            // khong nhap du lieu vao truong Your Subject thi thong bao loi
+            if (subjectInput.value === '') {
+                subjectInput.setCustomValidity('Please fill out your subject.');
+            } // nhap vao truong Your subject duoi 50 ki tu 
+            else if (subjectInput.value.length < 50) {
+                subjectInput.setCustomValidity('Subject should not shorter than 50 characters.')
+            } // nhap vao truong subject tren 250 ki tu 
+            else if (subjectInput.value.length > 250) {
+                subjectInput.setCustomValidity('Subject should not exceed 250 characters.')
+                    // nhap dung du lieu vao truong subject 
+            } else {
+                subjectInput.setCustomValidity('');
+            }
+        }
+
+        function validate() {
+            validateNameInput();
+            validateEmailInput();
+            validateSubjectInput();
+        }
     </script>
 </body>
