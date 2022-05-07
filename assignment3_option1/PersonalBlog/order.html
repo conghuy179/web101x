@@ -1,0 +1,88 @@
+<script src="order.js">
+</script>
+<script src="order.css">
+</script>
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/details-1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phan Cong Huy's Hot Cake Blog</title>
+</head>
+
+<body>
+    <header>
+        <div id="welcomeDiv">
+            <h1>WELCOME TO HUYS CAKE BLOG!</h1>
+        </div>
+    </header>
+    <ul>
+        <li>
+            <a href="index.html" title="homepage">Home</a></li>
+        <li class="parent">Products
+            <ol class="child">
+                <li><a href="details-1.html" title="Coconut bundt cake">The Amazing Coconut Bundt Cake</a></li>
+                <li><a href="details-2.html" title="German Chocolate cake">The Stunning German Chocolate cake</a></li>
+                <li><a href="details-3.html" title="Cream Cheese Pound Cake">The Great Cream Cheese Pound Cake</a></li>
+                <li> <a href="details-4.html" title=" Classic Yellow Cake">The Breath-taking Classic Yellow Cake</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="order.html" title="Order">Order</a>
+        </li>
+        <li>
+            <a href="contact.html" title="Contact ">Contact</a>
+        </li>
+        <li>
+            <a href="about.html" title="About">About</a>
+        </li>
+    </ul>
+    <main>
+        <form action="">
+
+            <label for="type">Cake</label>
+
+            <input type="number" min="0" max="100" name="Cake" id="coconut bundt">Coconut Bundt Cake<br>
+            <input type="number" min="0" max="100" name="Cake" id="german chocolate">German Chocolate Cake<br>
+            <input type="number" min="0" max="100" name="Cake" id="cream cheese pound">Cream Cheese Pound Cake<br>
+            <input type="number" min="0" max="100" name="Cake" id="classic yellow ">Classic Yellow Cake<br>
+
+            <label for="name">Customer's Name</label>
+
+            <input type="name" name="name" id="name"><br>
+
+            <label for="word">Words on Cakes</label>
+
+            <input type="text" name="word" id="word" maxlength="30"><br>
+
+            <label for="extra"> Addition</label>
+
+            <label><input type="number" min="0" max="100" name="addition" value="candle"> Candle</label><br>
+            <label><input type="number" min="0" max="100" name="addition" value="firework"> Firework</label><br>
+            <label><input type="text" maxlength="30" name="addition" id="others"> Others (Type here)</label><br>
+
+            <label for="date"> Receiving Date</label>
+
+            <input type="date" name="date" id="date"><br>
+
+            <label for="address"> Receiving Address</label>
+
+            <input type="text" name="address" id="address"><br>
+
+            <label for="Call"> Call before delivery</label>
+
+            <input type="checkbox" name="call" id="call"><br>
+            <form action="/action_page.php" method="post" onsubmit="submitorder()">
+                <input type="submit" value="Send Order">
+                <script>
+                    function submitorder() {
+                        alert("The order was submitted");
+                    }
+                </script>
+
+            </form>
+    </main>
+    <footer>&copy;2022 by Huy's cake</footer>
+</body>
