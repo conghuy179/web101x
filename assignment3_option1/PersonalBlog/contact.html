@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/details-1.css">
+    <link rel="stylesheet" href="CSS/contact.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phan Cong Huy's Hot Cake Blog</title>
 </head>
@@ -43,9 +43,8 @@
     <main>
         <form action="">
 
-            <label for="name">Name</label>
-
-            <input type="text" name="name" id="name" maxlength="100" required><br>
+            <label for="name">Your name:</label>
+            <input type="text" name="name" id="name" maxlength="10" required><br>
 
             <label for="email">Email</label>
 
@@ -56,12 +55,40 @@
             <input type="text" name="title" id="title" maxlength="250" minlength="50"><br>
 
             <label for="message"> Message</label>
+            <textarea name="message" cols="40" rows="5" maxlength="500" required></textarea>
 
-            <input type="text" name="content" id="content" maxlength="500" required><br>
-
+            <br>
             <input type="submit" value="Send Message">
 
         </form>
     </main>
     <footer>&copy;2022 by Huy's cake</footer>
+    <script>
+        // name input validation
+        const nameInput = document.getElementById("name");
+
+        nameInput.addEventListener('invalid', function(e) {
+            const validityState = nameInput.validity;
+
+            // khong nhap ten vao truong Your name thi thong bao loi
+            if (validityState.valueMissing) {
+                nameInput.setCustomValidity('Please fill out your name.');
+            } else if (validityState.tooLong) {
+                nameInput.setCustomValidity('Your name should not exceed 100 characters.');
+            } else {
+                nameInput.setCustomValidity('');
+            }
+        })
+
+        // nhap vao truong Your name qua 100 ki tu
+
+        //     // email input validation
+        // const emailInput = document.getElementById("email");
+        // emailInput.addEventListener('invalid', function(e) {
+        //     // khong nhap ten vao truong Your name thi thong bao loi
+        //     if (emailInput.value.length > 100) {
+        //         emailInput.setCustomValidity('Please fill out your name.');
+        //     }
+        // })
+    </script>
 </body>
